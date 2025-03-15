@@ -1,0 +1,59 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: transparent;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* Ensures items don’t overflow */
+}
+
+/* Ensure the nav links and icons have proper spacing */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Prevents overflow */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.nav-links li a:hover {
+  color: #00c9ff;
+}
+
+/* Social Icons & Resume Buttons */
+.nav-icons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap; /* Ensures buttons don’t get cut off */
+}
+
+/* Fix Button Sizing */
+.nav-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  white-space: nowrap; /* Prevents text wrapping */
+  transition: 0.3s;
+}
+
+.nav-icon:hover {
+  color: #00c9ff;
+  background: rgba(255, 255, 255, 0.3);
+}

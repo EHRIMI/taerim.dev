@@ -1,0 +1,56 @@
+.rain {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Raindrop */
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 15px;
+  height: 120px;
+  pointer-events: none;
+  animation: drop linear infinite;
+}
+
+/* Drop Animation */
+@keyframes drop {
+  0% { transform: translateY(0vh); opacity: 1; }
+  90% { transform: translateY(90vh); opacity: 1; }
+  100% { transform: translateY(90vh); opacity: 0; } /* Disappear at bottom */
+}
+
+/* Falling Stem */
+.stem {
+  width: 1px;
+  height: 80%;
+  margin-left: 7px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3));
+  animation: stem linear infinite;
+}
+
+/* Splat Effect */
+.splat {
+  width: 20px;
+  height: 10px;
+  border-top: 3px dotted rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: splat 0.3s linear infinite;
+  animation-fill-mode: forwards; /* Ensures splat stays */
+}
+
+/* Splash Animation */
+@keyframes splat {
+  0% { opacity: 0; transform: scale(0); }
+  90% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
