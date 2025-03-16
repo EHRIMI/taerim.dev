@@ -1,10 +1,11 @@
 .about-container {
   text-align: center;
   padding: 100px 20px;
-  max-width: 900px;
   margin: auto;
   position: relative;
   z-index: 1;
+  overflow-y: auto;
+  
 }
 
 .text {
@@ -17,12 +18,16 @@
 }
 
 .about-container p {
+  text-align: center;
+  max-width: 940px;
+  margin: auto;
+  margin-bottom: 60px;
   font-size: 20px;
   line-height: 1.2;
   color: #f9bbd6;
 }
 
-/* Background animation for twinkling stars */
+/* Background stars */
 .about-background {
   position: fixed;
   top: 0;
@@ -34,7 +39,6 @@
       rgba(5, 5, 30, 1) 50%, 
       rgba(0, 0, 20, 1) 100%
   );
-  overflow: hidden;
   z-index: -1;
 }
 
@@ -48,14 +52,14 @@
   animation: twinkling 2.4s infinite alternate;
 }
 
-/* Twinkling animation */
+
 @keyframes twinkling {
   0% { opacity: 0; transform: scale(0.8); }
   50% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(0.8); }
 }
 
-/* Skills Container */
+
 .skills-container {
   margin-top: 70px;
   display: flex;
@@ -67,7 +71,7 @@
   margin-right: auto;
 }
 
-/* Skill Card */
+
 .skill-card {
   width: 100px;
   height: 75px;
@@ -76,10 +80,9 @@
   border-radius: 13px;
   box-shadow: 0 4px 10px rgba(255, 176, 225, 0.3);
   cursor: pointer;
-  overflow: hidden;
 }
 
-/* Inner Card */
+
 .skill-inner {
   width: 100%;
   height: 100%;
@@ -88,7 +91,7 @@
   transition: transform 0.5s ease-in-out;
 }
 
-/* Front & Back Side */
+
 .skill-front, .skill-back {
   width: 100%;
   height: 100%;
@@ -102,21 +105,19 @@
   backface-visibility: hidden;
 }
 
-/* Front Side */
 .skill-front {
   background: linear-gradient(135deg, #ffbcf2, #eef1a4);
   color: rgb(12, 0, 80);
   z-index: 2;
 }
 
-/* Back Side */
+
 .skill-back {
   background: linear-gradient(135deg, #eef1a4, #f41c11);
   color: rgb(255, 255, 255);
   transform: rotateY(180deg);
 }
 
-/* ✅ Fix: Ensure proper flipping */
 .skill-inner.transformed {
   transform: rotateY(180deg);
 }

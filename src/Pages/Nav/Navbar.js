@@ -1,50 +1,13 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faFileDownload, faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import MusicPlayer from "./MusicPlayer"; // Import MusicPlayer
 import "./Navbar.css";
 
 function Navbar() {
-  const audioRef = useRef(new Audio("/debussy.mp3"));
   const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    // Try autoplaying when the page loads
-    const playMusic = async () => {
-      try {
-        await audioRef.current.play();
-        setIsPlaying(true);
-      } catch (err) {
-        console.log("Autoplay blocked. User interaction required.");
-      }
-    };
-
-    playMusic();
-
-    // Enable music on user interaction if autoplay is blocked
-    const enableAudio = () => {
-      if (!isPlaying) {
-        audioRef.current.play();
-        setIsPlaying(true);
-      }
-    };
-
-    document.addEventListener("click", enableAudio, { once: true });
-
-    return () => {
-      document.removeEventListener("click", enableAudio);
-    };
-  }, []);
-
-  const togglePlay = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
 
   return (
     <nav className="navbar">
@@ -55,7 +18,6 @@ function Navbar() {
         <li><Link to="/contact">Contact</Link></li>
       </ul>
 
-      {/* Social, Resume & Music Buttons */}
       <div className="nav-icons">
         <a 
           href="https://www.linkedin.com/in/taerim-kim-39563b250/" 
@@ -75,9 +37,12 @@ function Navbar() {
         </a>
 
         {/* Music Play/Pause Button */}
-        <button className="nav-icon music-button" onClick={togglePlay}>
+        <button className="nav-icon music-button" onClick={() => setIsPlaying(!isPlaying)}>
           <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} /> {isPlaying ? "Pause" : "Play"}
         </button>
+
+        {/* Hidden MusicPlayer component for handling audio */}
+        <MusicPlayer isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
       </div>
     </nav>
   );

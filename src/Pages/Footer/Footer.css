@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'SungDongMyungjo';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongMyungjo/SungDongMyungjoR.woff2') format('woff2'), url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongMyungjo/SungDongMyungjoR.woff') format('woff');
+  }
+
+.footer {
+    font-family: 'SungDongMyungjo';
+    text-align: left;
+    padding: 1px 20px;
+    font-size: 14px;
+    color: rgb(255, 92, 11);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+  }

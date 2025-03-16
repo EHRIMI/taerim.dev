@@ -5,7 +5,7 @@ import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
 import Projects from "./Pages/Pro/Projects";
-
+import Footer from "./Pages/Footer/Footer";
 import './App.css';
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />  
       </Routes>
+      <Footer />
     </Router>
   );
 }
