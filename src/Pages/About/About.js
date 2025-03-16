@@ -57,7 +57,6 @@ function About() {
         digital experiences. Hello World!
       </p>
 
-      <h2>My Programming Skills</h2>
       <div className="skills-container">
         {skills.map((skill, index) => (
           <div

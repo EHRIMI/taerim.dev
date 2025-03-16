@@ -6,21 +6,23 @@ import { faFileDownload, faPlay, faPause } from "@fortawesome/free-solid-svg-ico
 import "./Navbar.css";
 
 function Navbar() {
-  const audioRef = useRef(null);
+  const audioRef = useRef(new Audio("/debussy.mp3"));
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
+    // Try autoplaying when the page loads
     const playMusic = async () => {
       try {
         await audioRef.current.play();
         setIsPlaying(true);
       } catch (err) {
-        console.log("Autoplay blocked. Waiting for user interaction.");
+        console.log("Autoplay blocked. User interaction required.");
       }
     };
 
     playMusic();
 
+    // Enable music on user interaction if autoplay is blocked
     const enableAudio = () => {
       if (!isPlaying) {
         audioRef.current.play();
@@ -33,7 +35,7 @@ function Navbar() {
     return () => {
       document.removeEventListener("click", enableAudio);
     };
-  }, [isPlaying]);
+  }, []);
 
   const togglePlay = () => {
     if (isPlaying) {
@@ -53,7 +55,7 @@ function Navbar() {
         <li><Link to="/contact">Contact</Link></li>
       </ul>
 
-      {}
+      {/* Social, Resume & Music Buttons */}
       <div className="nav-icons">
         <a 
           href="https://www.linkedin.com/in/taerim-kim-39563b250/" 
@@ -72,14 +74,11 @@ function Navbar() {
           <FontAwesomeIcon icon={faFileDownload} /> Resume
         </a>
 
-        {}
-        <button className="music-button" onClick={togglePlay}>
+        {/* Music Play/Pause Button */}
+        <button className="nav-icon music-button" onClick={togglePlay}>
           <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} /> {isPlaying ? "Pause" : "Play"}
         </button>
       </div>
-
-      {}
-      <audio ref={audioRef} src="/debussy.mp3" loop />
     </nav>
   );
 }
