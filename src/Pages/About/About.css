@@ -7,15 +7,19 @@
   z-index: 1;
 }
 
+.text {
+  margin-bottom: 40px; 
+}
+
 .about-container h1 {
   font-size: 30px;
-  color: #ff8dca;
+  color: #ffacbe;
 }
 
 .about-container p {
   font-size: 20px;
   line-height: 1.2;
-  color: #f2abe4;
+  color: #f9bbd6;
 }
 
 /* Background animation for twinkling stars */
@@ -38,7 +42,7 @@
   position: absolute;
   width: 2px;
   height: 2px;
-  background: rgb(255, 176, 176);
+  background: rgb(255, 172, 172);
   border-radius: 50%;
   opacity: 0;
   animation: twinkling 2.4s infinite alternate;
@@ -53,7 +57,7 @@
 
 /* Skills Container */
 .skills-container {
-  margin-top: 140px;
+  margin-top: 70px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

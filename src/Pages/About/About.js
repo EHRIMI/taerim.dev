@@ -52,11 +52,12 @@ function About() {
         ))}
       </div>
       <h1>About Me</h1>
-      <p>
-        I'm a developer passionate about building creative and functional
-        digital experiences. Hello World!
+      <p className="text">
+        I'm a student developer passionate about building artistic and creative
+        digital experiences.
+        Bg music is Debussy - reflets dans l'eau. Hope you like it!
       </p>
-
+      <img src="/duggoweb.png" width="180"/>
       <div className="skills-container">
         {skills.map((skill, index) => (
           <div
