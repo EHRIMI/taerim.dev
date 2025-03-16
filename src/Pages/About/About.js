@@ -57,7 +57,8 @@ function About() {
         digital experiences.
         Bg music is Debussy - reflets dans l'eau. Hope you like it!
       </p>
-      <img src="/duggoweb.png" width="180"/>
+      <img src="/duggoweb.png" width="120"/>
+      <img src="/duggoweb2.png" width="180"/>
       <div className="skills-container">
         {skills.map((skill, index) => (
           <div
