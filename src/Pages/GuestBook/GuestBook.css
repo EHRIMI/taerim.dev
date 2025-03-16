@@ -1,0 +1,105 @@
+.guestbook-page {
+    background: linear-gradient(to top, #265b45, #588f62, #cddfa4);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Main Container */
+.guestbook-container {
+    display: flex;
+    width: 750px;
+    height: 500px;
+    background: rgba(234, 236, 208, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Left Box: Message Input */
+.guestbook-form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 20px;
+    
+}
+
+/* Form Inside Left Box */
+.guestbook-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    
+}
+
+/* Input Box */
+.guestbook-form input {
+    font-family: 'Ycomputer-Regular';
+    width: 90%;
+    height: 60px;
+    padding: 10px;
+    font-size: 14px;
+    border: 0.6px solid #1f7735;
+    border-radius: 5px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Centered Submit Button */
+.guestbook-form button {
+    font-family: 'Ycomputer-Regular';
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: rgb(239, 255, 224,  0.4);
+    color: rgb(36, 61, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 120px;
+    transition: 0.3s;
+}
+
+.guestbook-form button:hover {
+    background-color: #ffebeead;
+}
+
+/* Right Box: Scrollable Log */
+.guestbook-messages-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(211, 208, 208, 0.5);
+    border: 1px solid #ffffff;
+    overflow-y: auto;
+    max-height: 100%;
+    width: 100%;
+}
+
+/* Individual Messages */
+.guestbook-message {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 0.2px solid #a1bda8;
+}
+
+/* Timestamp */
+.timestamp {
+    font-size: 12px;
+    color: gray;
+    display: block;
+    margin-top: 5px;
+}
