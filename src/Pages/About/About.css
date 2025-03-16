@@ -5,7 +5,6 @@
   position: relative;
   z-index: 1;
   overflow-y: auto;
-  
 }
 
 .text {
@@ -22,12 +21,12 @@
   max-width: 940px;
   margin: auto;
   margin-bottom: 60px;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: lighter;
   line-height: 1.2;
   color: #f9bbd6;
 }
 
-/* Background stars */
 .about-background {
   position: fixed;
   top: 0;
@@ -52,13 +51,11 @@
   animation: twinkling 2.4s infinite alternate;
 }
 
-
 @keyframes twinkling {
   0% { opacity: 0; transform: scale(0.8); }
   50% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(0.8); }
 }
-
 
 .skills-container {
   margin-top: 70px;
@@ -71,7 +68,6 @@
   margin-right: auto;
 }
 
-
 .skill-card {
   width: 100px;
   height: 75px;
@@ -82,7 +78,6 @@
   cursor: pointer;
 }
 
-
 .skill-inner {
   width: 100%;
   height: 100%;
@@ -90,7 +85,6 @@
   transform-style: preserve-3d;
   transition: transform 0.5s ease-in-out;
 }
-
 
 .skill-front, .skill-back {
   width: 100%;
@@ -100,7 +94,7 @@
   align-items: center;
   justify-content: center;
   font-size: 15px;
-  font-weight:lighter;
+  font-weight: lighter;
   border-radius: 15px;
   backface-visibility: hidden;
 }
@@ -111,7 +105,6 @@
   z-index: 2;
 }
 
-
 .skill-back {
   background: linear-gradient(135deg, #eef1a4, #f41c11);
   color: rgb(255, 255, 255);
@@ -120,4 +113,66 @@
 
 .skill-inner.transformed {
   transform: rotateY(180deg);
+}
+
+/* Floating TMI Button */
+.tmi-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgb(54, 69, 98);
+  color: white;
+  font-size: 24px;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease-in-out;
+}
+
+.tmi-button:hover {
+  transform: scale(1.1);
+}
+
+/* TMI Pop-up */
+.tmi-popup {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: rgba(229, 198, 207, 0.68);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(255, 226, 226, 0.3);
+  width: 260px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tmi-content {
+  font-size: 16px;
+  color: #333;
+}
+
+.tmi-content h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  color: #1e235d;
+}
+
+.tmi-content p {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #1e235d;
+}
+
+
+.close-tmi:hover {
+  background: #d3b6dd;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
