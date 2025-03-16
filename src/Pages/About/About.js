@@ -54,7 +54,7 @@ function About() {
       <p className="text">
         My name is Taerim Kim. I am a South Korean currently studying CS at Virginia Tech.
         I'm also a developer passionate about building artistic and creative digital experiences.
-        Bg music is my favorite classical music piece - Reflets dans l'eau by Debussy. 
+        Bg music is my favorite classical music piece- Reflets dans l'eau by Debussy. 
         Hope you like it!
       </p>
       <img src="/duggoweb.png" width="120"/>
