@@ -11,15 +11,14 @@
   width: 100%;
   z-index: 1000;
   box-sizing: border-box;
-  flex-wrap: wrap; /* Ensures items don’t overflow */
+  flex-wrap: wrap;
 }
 
-/* Ensure the nav links and icons have proper spacing */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
-  flex-wrap: wrap; /* Prevents overflow */
+  flex-wrap: wrap;
 }
 
 .nav-links li a {
@@ -32,15 +31,14 @@
   color: #00c9ff;
 }
 
-/* Social Icons & Resume Buttons */
 .nav-icons {
   display: flex;
   gap: 15px;
-  flex-wrap: wrap; /* Ensures buttons don’t get cut off */
+  flex-wrap: wrap;
 }
 
-/* Fix Button Sizing */
-.nav-icon {
+.nav-icon, .music-button {
+  font-family: "Sam3KRFont";
   display: flex;
   align-items: center;
   gap: 8px;
@@ -49,11 +47,14 @@
   font-size: 16px;
   padding: 8px 12px;
   border-radius: 5px;
-  white-space: nowrap; /* Prevents text wrapping */
+  white-space: nowrap;
   transition: 0.3s;
+  background: rgba(255, 255, 255, 0.2); 
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
 }
 
-.nav-icon:hover {
+.nav-icon:hover, .music-button:hover {
   color: #00c9ff;
   background: rgba(255, 255, 255, 0.3);
 }
