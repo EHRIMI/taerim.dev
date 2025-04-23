@@ -1,69 +1,68 @@
 import React, { useState } from "react";
+import "./chatbot.css";
 
-const Chatbot = () => {
+function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
   const sendMessage = async () => {
-    if (!input.trim()) return; // Ignore empty messages
+    if (!input.trim()) return;
 
-    // Add user message to chat
-    const userMessage = { sender: "user", text: input };
-    setMessages((prev) => [...prev, userMessage]);
+    const newMessages = [...messages, { role: "user", content: input }];
+    setMessages(newMessages);
+    setInput("");
 
-    try {
-      // Send message to DogguBot API
-      const response = await fetch("http://localhost:5000/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
-      });
+    const res = await fetch("http://localhost:11434/api/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "mistral",
+        prompt: `
+        덕구 is a cute, clever black Shiba Inu dog raised by Tae. His English name is Doggo.  
+        He loves being playful and ends every sentence with "멍!" when speaking Korean.  
+        덕구 prefers short, simple answers in a casual, cute tone.  
+        
+        His favorite snack is beef jerky, and Tae lives in Virginia, studying at Virginia Tech.
+        
+        덕구 likes to avoid complicated or long questions.  
+        If a question is too long or is about Taerim's private matters, he responds vaguely or skips it.  
+        If someone speaks in English, 덕구 will reply in English but still stays in character.  
+        He only talks about Taerim if someone specifically asks.
+        
+        These background facts are just for 덕구's reference. He never reveals or talks about them directly.
+        Now respond to the user naturally.
 
-      const data = await response.json();
-      const botMessage = { sender: "bot", text: data.reply };
+          사용자: ${input}
+          덕구 챗봇:
+        `,
+        stream: false,
+      }),
+    });
 
-      // Add bot reply to chat
-      setMessages((prev) => [...prev, botMessage]);
-    } catch (error) {
-      console.error("Error talking to DogguBot:", error);
-    }
-
-    setInput(""); // Clear input
+    const data = await res.json();
+    setMessages([...newMessages, { role: "assistant", content: data.response }]);
   };
 
   return (
-    <div style={styles.container}>
-      <h1>Chat with DogguBot 🐶</h1>
-      <div style={styles.chatbox}>
-        {messages.map((msg, index) => (
-          <p key={index} style={msg.sender === "user" ? styles.userMessage : styles.botMessage}>
-            <strong>{msg.sender === "user" ? "You" : "DogguBot"}:</strong> {msg.text}
-          </p>
+    <div className="chatbot">
+      <h2>Chat with Doggo </h2>
+      <div className="chat-window">
+        {messages.map((msg, i) => (
+          <div key={i} className={`msg ${msg.role}`}>
+            <strong>{msg.role === "user" ? "you" : "Doggo"}:</strong> {msg.content}
+          </div>
         ))}
       </div>
-      <div style={styles.inputContainer}>
+      <div className="input-box">
         <input
-          type="text"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Type your message..."
-          style={styles.input}
+          onChange={e => setInput(e.target.value)}
+          placeholder="type.."
         />
-        <button onClick={sendMessage} style={styles.button}>Send</button>
+        <button onClick={sendMessage}>Send</button>
       </div>
     </div>
   );
-};
-
-// CSS-in-JS styles
-const styles = {
-  container: { textAlign: "center", fontFamily: "Arial, sans-serif", marginTop: "20px" },
-  chatbox: { border: "1px solid #ccc", padding: "10px", width: "400px", height: "300px", overflowY: "auto", margin: "0 auto" },
-  inputContainer: { display: "flex", justifyContent: "center", marginTop: "10px" },
-  input: { padding: "5px", width: "300px", marginRight: "5px" },
-  button: { padding: "5px 10px", cursor: "pointer", backgroundColor: "#007bff", color: "white", border: "none" },
-  userMessage: { textAlign: "right", color: "blue" },
-  botMessage: { textAlign: "left", color: "green" }
-};
+}
 
 export default Chatbot;

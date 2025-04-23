@@ -7,6 +7,7 @@ import Contact from "./Pages/Contact/Contact";
 import Projects from "./Pages/Pro/Projects";
 import Footer from "./Pages/Footer/Footer";
 import Guestbook from "./Pages/GuestBook/GuestBook";
+import Chatbot from "./Pages/Chatbot/Chatbot";
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />  
         <Route path="/guestbook" element={<Guestbook />} />
+        <Route path="/chatbot" element={<Chatbot />} />
       </Routes>
       <Footer />
     </Router>

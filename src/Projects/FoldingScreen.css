@@ -1,0 +1,51 @@
+.folding-screen-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f8f1e4;
+  }
+  
+  .screen-container {
+    display: flex;
+    position: relative;
+    perspective: 1000px; /* Enables 3D rotation */
+  }
+  
+  .panel {
+    width: 150px;
+    height: 300px;
+    border: 2px solid red;
+    transform-origin: left center;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  /* Corrected PNG paths */
+  #panel1 {
+    background: url('/public/panel1.png') no-repeat center;
+    background-size: cover;
+  }
+  
+  #panel2 {
+    background: url('/public/panel2.png') no-repeat center;
+    background-size: cover;
+  }
+  
+  #panel3 {
+    background: url('/public/panel3.png') no-repeat center;
+    background-size: cover;
+  }
+  
+  #panel4 {
+    background: url('/public/panel4.png') no-repeat center;
+    background-size: cover;
+  }
+  
+  /* Buttons */
+  button {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+  }

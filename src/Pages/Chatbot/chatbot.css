@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'LeeSeoyun';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .chatbot, .chatbot * {
+    font-family: 'LeeSeoyun', sans-serif !important;
+  }
+.chatbot {
+    font-family: 'LeeSeoyun';
+    max-width: 500px;
+    margin: 10rem auto;
+    text-align: center;
+    background-color: #fff6f9;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 채팅창 */
+  .chat-window {
+    font-family: 'LeeSeoyun';
+    height: 300px;
+    overflow-y: auto;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #ffeef4;
+    border-radius: 15px;
+    border: 2px solid #ffb6c1;
+    text-align: left;
+  }
+  
+  /* 메시지 */
+  .msg {
+    margin: 1rem 0;
+    line-height: 1.5;
+  }
+  
+  .msg.user {
+    text-align: right;
+    color: #ff69b4;
+  }
+  
+  .msg.assistant {
+    text-align: left;
+    color: #5a5a5a;
+  }
+  
+  /* 입력창과 버튼 */
+  .input-box {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  input {
+    font-family: 'LeeSeoyun';
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border-radius: 30px;
+    border: 2px solid #ffb6c1;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  body {
+    font-family: 'LeeSeoyun';
+    background-color: #edb1d4; /* 연핑크 배경 */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 귀여운 버튼 */
+  button {
+    font-family: 'LeeSeoyun';
+    padding: 0.7rem 1.2rem;
+    border-radius: 30px;
+    border: none;
+    background-color: #ff82ab;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #ff6095;
+  }
